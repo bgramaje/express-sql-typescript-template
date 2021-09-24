@@ -4,14 +4,13 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db/connect"
 import Logger from "./config/utils/logger.utils"
 
-
 dotenv.config();
 
 const port = process.env.PORT || 3000;
 
 connectDB()
     .then(() => {
-        app.listen(port, () => {
+        app.listen(port, async () => {
             Logger.info(`Listening on http://localhost:${port}`);
         })
     })

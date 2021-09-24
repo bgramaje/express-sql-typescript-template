@@ -6,8 +6,11 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 
 import {
-    HOME
+    HOME,
+    USERS
 } from './config/routes'
+
+import { userRouter } from './api/routes/user.routes';
 
 import morganMiddleware from './api/middlewares/morgan.middleware';
 
@@ -27,6 +30,8 @@ app.get(HOME, (req: Request, res: Response) => {
         message: 'HOME - 🌈👋🌎'
     });
 })
+
+app.use(USERS, userRouter);
 
 
 export default app;

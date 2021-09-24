@@ -1,16 +1,8 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
 
-const sequelize = new Sequelize('postgres::memory:');
+import { sequelize } from '../sequilize.config';
 
-export default class User extends Model {
-    /*
-    static associate(models) {
-        User.belongsToMany(models.Image, { through: "IMAGE_CATEGORY", as: "images", timestamps: false });
-    }
-    */
-}
-
-User.init({
+const User = sequelize.define('user', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -19,9 +11,10 @@ User.init({
     username: DataTypes.STRING,
     password: DataTypes.STRING
 }, {
-    sequelize,
     modelName: 'user',
-    tableName: 'USERS',
+    tableName: 'users',
     timestamps: false
-});
+})
+
+export default User;
 

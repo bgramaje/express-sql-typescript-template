@@ -4,3 +4,4 @@
  */
 export const HOME = '/'
 export const SAMPLE = '/sample'
+export const USERS = '/users'
